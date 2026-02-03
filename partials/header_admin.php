@@ -8,7 +8,7 @@
 
 <style>
 .navbar-admin {
-  background: linear-gradient(135deg,#1e293b,#0f172a);
+  background: linear-gradient(135deg,#ffffff,#0f172a);
 }
 .navbar-admin .nav-link {
   color: #e5e7eb !important;
@@ -16,7 +16,7 @@
   margin-left: 8px;
 }
 .navbar-admin .nav-link:hover {
-  color: #ffffff !important;
+  color: #c91212 !important;
 }
 .brand-text {
   font-weight: 600;

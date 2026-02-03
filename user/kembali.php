@@ -16,16 +16,36 @@ $data = mysqli_query($conn,"
 
 /* proses pengembalian */
 if(isset($_GET['kembali'])){
+  $id_pinjam = $_GET['kembali'];
+
+  // ambil detail buku yang dipinjam
+  $detail = mysqli_query($conn,"
+    SELECT d.id_buku, d.jumlah 
+    FROM detail_peminjaman d
+    WHERE d.id_pinjam='$id_pinjam'
+  ");
+
+  while($d = mysqli_fetch_assoc($detail)){
+    // tambahkan stok buku
+    mysqli_query($conn,"
+      UPDATE buku 
+      SET stok = stok + $d[jumlah]
+      WHERE id_buku='$d[id_buku]'
+    ");
+  }
+
+  // update status peminjaman
   mysqli_query($conn,"
     UPDATE peminjaman 
     SET status='dikembalikan',
         tanggal_kembali=CURDATE()
-    WHERE id_pinjam='$_GET[kembali]' 
+    WHERE id_pinjam='$id_pinjam' 
       AND id_user='$id_user'
   ");
 
   echo "<script>alert('Buku berhasil dikembalikan');location='kembali.php';</script>";
 }
+
 ?>
 
 <div class="container mt-4">

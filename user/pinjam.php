@@ -100,18 +100,12 @@ if(isset($_POST['pinjam'])){
           <input type="number" name="jumlah[]" class="form-control" min="1" required>
         </div>
 
-        <div class="col-md-2 d-flex align-items-end">
-          <button type="button" class="btn btn-outline-danger w-100 remove">
-            Hapus
-          </button>
-        </div>
+        
       </div>
 
     </div>
 
-    <button type="button" class="btn btn-outline-secondary mb-3" id="tambah">
-      + Tambah Buku Lain
-    </button>
+    
 
     <div class="d-grid">
       <button name="pinjam" class="btn btn-dark btn-lg">
